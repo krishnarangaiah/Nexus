@@ -28,16 +28,16 @@
     <div class="row justify-content-center align-items-center h-100">
 
         <div class="card" style="width: 60%">
-            <h5 class="card-header text-danger font-weight-bold mb-0"><i class="fa fa-user-o"
+            <h5 class="card-header text-danger font-weight-bold mb-0"><i class="fa fa-appUser-o"
                                                                aria-hidden="true"></i> Create User
                 <span style="float: right;">
-                    <a href="/User/List" style="color: white;"> <i class="fa fa-address-book-o" aria-hidden="true"></i></a>
+                    <a href="/AppUser/List" style="color: white;"> <i class="fa fa-address-book-o" aria-hidden="true"></i></a>
                 </span>
             </h5>
             <div class="card-body">
                 <div class="row justify-content-center align-items-center h-100">
                     <div class="col col-xl-12">
-                        <form id="createUserFormId" action="/User/Save" method="post">
+                        <form id="createUserFormId" action="/AppUser/Save" method="post">
 
                             <div class="row">
 
@@ -53,7 +53,7 @@
                                     <div class="form-group">
                                         <label for="roleId">Role</label>
                                         <select id="roleId" name="role" class="form-control">
-                                            <option th:each="roleOpt : ${T(app.dao.model.user.Role).values()}"
+                                            <option th:each="roleOpt : ${T(app.dao.model.appUser.Role).values()}"
                                                     th:value="${roleOpt}" th:text="${roleOpt}"></option>
                                         </select>
                                     </div>

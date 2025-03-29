@@ -1,6 +1,7 @@
 package app.dao.service
 
-import app.dao.model.user.User
+
+import app.dao.model.user.AppUser
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
@@ -10,23 +11,23 @@ class UserService {
     @Autowired
     private UserRepo userRepo
 
-    void save(User user) {
+    void save(AppUser user) {
         userRepo.save(user)
     }
 
-    User findById(Long id) {
+    AppUser findById(Long id) {
         return userRepo.findById(id).orElse(null)
     }
 
-    void delete(User user) {
+    void delete(AppUser user) {
         userRepo.delete(user)
     }
 
-    List<User> findAll() {
+    List<AppUser> findAll() {
         return userRepo.findAll()
     }
 
-    List<User> authenticate(String userName) {
+    List<AppUser> authenticate(String userName) {
         return userRepo.findByUserName(userName)
     }
 

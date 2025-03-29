@@ -1,89 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-<html>
 <head>
     <header th:insert="layout/AppLayout.html :: header"></header>
-
-    <script language="JavaScript">
-
-    $(function() {
-
-        $('#loginId').submit(function(e) {
-
-            // UserName
-            var userNameId = $('#userNameId');
-            if(!userNameId.val()){
-                userNameId.attr("placeholder", "This field is required");
-                userNameId.addClass("border-warning");
-                e.preventDefault();
-                return false;
-            }
-
-            // Password
-            var passwordId = $('#passwordId');
-            if(!passwordId.val()){
-                passwordId.attr("placeholder", "This field is required");
-                passwordId.addClass("border-warning");
-                e.preventDefault();
-                return false;
-            }
-
-        });
-
-        return true;
-
-    });
-
-
-
-    </script>
-
 </head>
 <body>
 <div th:insert="layout/AppLayout.html :: nav"></div>
 
 <div class="container-fluid h-100">
-    <div class="row justify-content-center align-items-center h-100">
-
-        <div class="card" style="width: 40%">
-            <h5 class="card-header text-danger font-weight-bold mb-0"><i class="fa fa-user-o"
-                                                               aria-hidden="true"></i> Login </h5>
-            <div class="card-body">
-
-                <div class="row justify-content-center align-items-center h-100">
-                    <div class="col col-xl-10">
-                        <form id="loginId" action="/User/Login" method="post">
-
-                            <div class="form-group row">
-                                <label for="userNameId" class="col-sm-3 col-form-label">User Name</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control noFocus-border" id="userNameId" name="userName">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="passwordId" class="col-sm-3 col-form-label">Password</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="passwordId" name="password">
-                                </div>
-                            </div>
-                            <center>
-                                <div class="form-group">
-                                    <div class="col">
-                                        <button type="submit" class="btn btn-secondary">Sign in</button>
-                                    </div>
-                                </div>
-                            </center>
-                        </form>
+    <div class="row justify-content-center align-items-center w-100">
+        <div class="col-5 d-flex justify-content-center">
+            <div class="custom-container">
+                <h2 class="text-center">Login</h2>
+                <form action="/AppUser/Login" method="post">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" id="username" name="userName" class="form-control" required>
                     </div>
-                </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" required>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary w-50">Login</button>
+                    </div>
+                </form>
             </div>
-
-
         </div>
     </div>
 </div>
-
 
 </body>
 </html>

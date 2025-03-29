@@ -1,19 +1,16 @@
 package app.conf
 
-import com.google.gson.Gson
+import com.fasterxml.jackson.databind.ObjectMapper
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 
 @Component
-class AppProperty implements Serializable{
+class AppProperty implements Serializable {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AppProperty.class)
 
-    @Autowired
-    private transient Gson gson
 
     @Value('${app.name:Not Available}')
     String appName
@@ -24,9 +21,11 @@ class AppProperty implements Serializable{
     @Value('${app.admin.password:system}')
     transient String appAdminPassword
 
+    @Value('${app.user.login.module:true}')
+    boolean appUserLoginModule
+
     @Override
     String toString() {
-        return gson.toJson(this)
+        return (new ObjectMapper()).writeValueAsString(this)
     }
-
 }

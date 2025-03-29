@@ -1,14 +1,17 @@
 package app.dao.model.user
 
+import com.google.gson.Gson
+
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
 
 @Entity
-class User implements Serializable {
+class AppUser implements Serializable {
 
     private static final long serialVersionUID = 3327643027629528402L
+    private static Gson gson = new Gson()
 
     @Id
     @GeneratedValue
@@ -26,4 +29,8 @@ class User implements Serializable {
     @Column
     String sessionId
 
+    @Override
+    String toString() {
+        gson.toJson(this)
+    }
 }

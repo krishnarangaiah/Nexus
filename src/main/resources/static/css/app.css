@@ -1,10 +1,32 @@
-.o-divider {
-  border: 0;
-  margin: 1 em;
-  height: 1px;
-  background: #656D78;
+body {
+    background-color: #f8f9fa;
 }
-
+.custom-container {
+    width: 100%;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.navbar {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+}
+.navbar-brand, .nav-link {
+    color: #ecf0f1 !important;
+    font-weight: 600;
+}
+.nav-link:hover {
+    color: #f39c12 !important;
+}
+.env-container {
+    padding: 10px;
+}
+.o-divider {
+    border: 0;
+    margin: 1 em;
+    height: 1px;
+    background: #656D78;
+}
 .noFocus-border{
-  outline: none;
+    outline: none;
 }

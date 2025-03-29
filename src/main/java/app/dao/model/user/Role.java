@@ -32,7 +32,7 @@ public enum Role {
 enum Action {
     // All Modules
     ALL,
-    // Module #1 User
+    // Module #1 AppUser
     USER_C, USER_R, USER_U, USER_D
 
 }

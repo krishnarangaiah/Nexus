@@ -17,13 +17,13 @@ import java.util.Map;
 public class AppGlobalRequestInterceptor extends HandlerInterceptorAdapter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AppGlobalRequestInterceptor.class);
-    private static final String LOGIN_FORM = "/User/LoginForm";
+    private static final String LOGIN_FORM = "/AppUser/LoginForm";
     private static final List<String> ALLOWED_URIS = Arrays.asList(
-            "/User/Login",
+            "/AppUser/Login",
             LOGIN_FORM,
-            "/webjars/bootstrap/4.5.0/css/bootstrap.min.css",
+            "/webjars/bootstrap/5.3.3/css/bootstrap.min.css",
             "/webjars/font-awesome/4.7.0/css/font-awesome.min.css",
-            "/webjars/bootstrap/4.5.0/js/bootstrap.min.js",
+            "/webjars/bootstrap/5.3.3/js/bootstrap.min.js",
             "/webjars/jquery/3.5.1/jquery.min.js",
             "/webjars/d3js/5.16.0/d3.min.js",
             "/js/app.js",
@@ -47,6 +47,7 @@ public class AppGlobalRequestInterceptor extends HandlerInterceptorAdapter {
             return super.preHandle(request, response, handler);
         } else if ((null == SessionUtil.getSessionUser(session))
                 || (!session.getId().equals(SessionUtil.getSessionUser(session).getSessionId()))) {
+            LOGGER.warn("No Session User found for sessionId: {}, redirecting to {}", session.getId(), LOGIN_FORM);
             response.sendRedirect(request.getContextPath() + LOGIN_FORM);
             return false;
         } else {
@@ -59,10 +60,12 @@ public class AppGlobalRequestInterceptor extends HandlerInterceptorAdapter {
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
 
         LOGGER.debug("PostHandle SessionId: {}", request.getSession().getId());
+        LOGGER.debug("Session User: {}", SessionUtil.getSessionUser(request.getSession()));
 
         if (null != modelAndView) {
             Map<String, Object> x = modelAndView.getModel();
             x.put("appProperty", appProperty);
+           // x.put("session", request.getSession());
         }
         super.postHandle(request, response, handler, modelAndView);
     }

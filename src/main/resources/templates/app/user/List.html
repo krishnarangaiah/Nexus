@@ -23,9 +23,9 @@
 
         <div class="card" style="width: 60%">
             <h5 class="card-header text-danger font-weight-bold mb-0">
-                <a href="/User/List" style="color: white;" class="text-danger font-weight-bold mb-0" > <i class="fa fa-address-book-o" aria-hidden="true"></i></a>
+                <a href="/AppUser/List" style="color: white;" class="text-danger font-weight-bold mb-0" > <i class="fa fa-address-book-o" aria-hidden="true"></i></a>
                 | Users
-                <span style="float: right;"> <a href="/User/Create" style="color: white;"> <i class="fa fa-user-o"
+                <span style="float: right;"> <a href="/AppUser/Create" style="color: white;"> <i class="fa fa-appUser-o"
                                                                                               aria-hidden="true"></i> </a> </span>
             </h5>
 
@@ -41,15 +41,15 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="user: ${users}">
-                    <td th:text="${user.id}"/>
-                    <td th:text="${user.userName}"/>
-                    <td th:text="${user.email}"/>
-                    <td th:text="${user.role}"/>
-                    <td th:text="${user.loginCount}"/>
-                    <td><a th:href="@{/User/Read/?id={id}(id=${user.id})}"><i class="fa fa-eye" style="color: gray;"
+                <tr th:each="appUser: ${appUsers}">
+                    <td th:text="${appUser.id}"/>
+                    <td th:text="${appUser.userName}"/>
+                    <td th:text="${appUser.email}"/>
+                    <td th:text="${appUser.role}"/>
+                    <td th:text="${appUser.loginCount}"/>
+                    <td><a th:href="@{/AppUser/Read/?id={id}(id=${appUser.id})}"><i class="fa fa-eye" style="color: gray;"
                                                                               aria-hidden="true"></i></a> |
-                        <a th:href="@{/User/Delete/?id={id}(id=${user.id})}"><i class="fa fa-times" style="color: gray;"
+                        <a th:href="@{/AppUser/Delete/?id={id}(id=${appUser.id})}"><i class="fa fa-times" style="color: gray;"
                                                                                 aria-hidden="true"></i></a>
                     </td>
                 </tr>

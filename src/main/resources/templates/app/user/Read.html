@@ -14,17 +14,17 @@
 
         <div class="card" style="width: 60%">
             <h5 class="card-header text-danger font-weight-bold mb-0">
-                <i class="fa fa-user-o" aria-hidden="true"></i> Update User
+                <i class="fa fa-appUser-o" aria-hidden="true"></i> Update User
                 <span style="float: right;">
-                    <a href="/User/List" style="color: white;"> <i class="fa fa-address-book-o" aria-hidden="true"></i></a> |
-                    <a href="/User/Create" style="color: white;"> <i class="fa fa-user-o" aria-hidden="true"></i> </a>
+                    <a href="/AppUser/List" style="color: white;"> <i class="fa fa-address-book-o" aria-hidden="true"></i></a> |
+                    <a href="/AppUser/Create" style="color: white;"> <i class="fa fa-appUser-o" aria-hidden="true"></i> </a>
                 </span>
 
             </h5>
             <div class="card-body">
                 <div class="row justify-content-center align-items-center h-100">
                     <div class="col col-xl-12">
-                        <form id="addAdminId" action="/User/Update" method="post">
+                        <form id="addAdminId" action="/AppUser/Update" method="post">
 
                             <div class="row">
 
@@ -32,7 +32,7 @@
                                     <div class="form-group">
                                         <label for="userNameId">User Name</label>
                                         <input id="userNameId" name="userName" type="text" class="form-control"
-                                               th:value="${user.userName}">
+                                               th:value="${appUser.userName}">
                                     </div>
                                 </div>
 
@@ -40,9 +40,9 @@
                                     <div class="form-group">
                                         <label for="roleId">Role</label>
                                         <select id="roleId" name="role" class="form-control">
-                                            <option th:each="roleOpt : ${T(app.dao.model.user.Role).values()}"
+                                            <option th:each="roleOpt : ${T(app.dao.model.appUser.Role).values()}"
                                                     th:value="${roleOpt}" th:text="${roleOpt}"
-                                                    th:selected="${roleOpt==user.role}">
+                                                    th:selected="${roleOpt==appUser.role}">
                                             </option>
                                         </select>
                                     </div>
@@ -56,14 +56,14 @@
                                     <div class="form-group">
                                         <label for="emailId">Email</label>
                                         <input id="emailId" name="email" type="text" class="form-control"
-                                               th:value="${user.email}">
+                                               th:value="${appUser.email}">
                                     </div>
                                 </div>
 
                             </div>
 
                             <br/>
-                            <input type="hidden" name="id" th:value="${user.id}">
+                            <input type="hidden" name="id" th:value="${appUser.id}">
                             <div class="row">
                                 <div class="col">
                                     <center>

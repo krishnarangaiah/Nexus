@@ -1,7 +1,7 @@
-package app.http;
+package app.controller;
 
+import app.dao.model.user.AppUser;
 import app.dao.model.user.Role;
-import app.dao.model.user.User;
 import app.dao.service.UserService;
 import app.session.SessionUtil;
 import org.slf4j.Logger;
@@ -26,13 +26,13 @@ public class SuperAdminController {
         LOGGER.info("UserName: {}", userName);
         LOGGER.info("Password: {}", password);
 
-        User user = new User();
-        user.setUserName(userName);
-        user.setPassword(password);
-        user.setRole(Role.ADMIN); // Super Admin can create only Admins
-        userService.save(user);
+        AppUser appUser = new AppUser();
+        appUser.setUserName(userName);
+        appUser.setPassword(password);
+        appUser.setRole(Role.ADMIN); // Super Admin can create only Admins
+        userService.save(appUser);
 
-        SessionUtil.setActionMsg(session, "Successfully added User: " + userName);
+        SessionUtil.setActionMsg(session, "Successfully added AppUser: " + userName);
 
         return "layout/app/SuperAdmin.html";
     }

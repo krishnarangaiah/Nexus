@@ -1,6 +1,6 @@
 package app.session;
 
-import app.dao.model.user.User;
+import app.dao.model.user.AppUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,12 +22,16 @@ public class SessionUtil {
         return session.isNew();
     }
 
-    public static void setSessionUser(HttpSession session, User user) {
-        session.setAttribute(USER, user);
+    public static void setSessionUser(HttpSession session, AppUser appUser) {
+        session.setAttribute(USER, appUser);
     }
 
-    public static User getSessionUser(HttpSession session) {
-        return (User) session.getAttribute(USER);
+    public static AppUser getSessionUser(HttpSession session) {
+        return (AppUser) session.getAttribute(USER);
+    }
+
+    public static void removeSessionUser(HttpSession session) {
+        session.removeAttribute(USER);
     }
 
     public static void setActionMsg(HttpSession session, String msg) {
