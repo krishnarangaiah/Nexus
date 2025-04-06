@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <header th:insert="layout/AppLayout.html :: header"></header>
+</head>
+<body>
+<div th:insert="layout/AppLayout.html :: nav"></div>
+
+<div class="container-fluid h-100">
+    <div class="row justify-content-center align-items-center w-100">
+        <div class="col-5 d-flex justify-content-center">
+            <div class="custom-container">
+                <h5 class="text-center text-primary">Autosys Definition</h5>
+                <form action="/Autosys/UploadDefinitionFile" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                       <input type="file" name="file" class="form-control" required accept=".txt,.jil,.log">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary w-50">Upload</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

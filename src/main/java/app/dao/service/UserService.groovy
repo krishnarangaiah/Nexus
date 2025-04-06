@@ -9,26 +9,26 @@ import org.springframework.stereotype.Service
 class UserService {
 
     @Autowired
-    private UserRepo userRepo
+    private UserRepo repo
 
     void save(AppUser user) {
-        userRepo.save(user)
+        repo.save(user)
     }
 
     AppUser findById(Long id) {
-        return userRepo.findById(id).orElse(null)
+        return repo.findById(id).orElse(null)
     }
 
     void delete(AppUser user) {
-        userRepo.delete(user)
+        repo.delete(user)
     }
 
     List<AppUser> findAll() {
-        return userRepo.findAll()
+        return repo.findAll()
     }
 
     List<AppUser> authenticate(String userName) {
-        return userRepo.findByUserName(userName)
+        return repo.findByUserName(userName)
     }
 
 }
