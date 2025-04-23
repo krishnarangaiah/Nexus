@@ -53,7 +53,7 @@ public class UserController {
             authenticated = true;
 
             LOGGER.info("AppUser {} Authenticated successfully", userName);
-            SessionUtil.setWarnMsg(session, "AppUser " + userName + " logged in as System AppUser");
+            SessionUtil.setActionMsg(session, "AppUser " + userName + " logged in as System AppUser");
             return new RedirectView("/");
 
         } else {

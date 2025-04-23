@@ -22,7 +22,7 @@ class AppFileUtil {
             Files.createDirectories(userDir)
             logger.info "Created the directory: {}", userDir.toString()
         } else {
-            logger.info "Directory: {} already exists", userDir.toString()
+            logger.info "Directory: {} already exists, not recreating", userDir.toString()
         }
     }
 
