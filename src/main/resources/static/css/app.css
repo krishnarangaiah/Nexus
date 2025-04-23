@@ -16,9 +16,18 @@ body {
     transform: translateY(-3px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
 }
+
+.custom-card:hover h5 {
+    color: var(--bs-danger); /* Change to your desired color */
+}
+
 /* Cards without transform effect */
 .no-transform-card {
     transform: none !important;
+}
+
+.custom-card.no-transform-card:hover h5 {
+    color: inherit !important; /* Retain the original color */
 }
 
 /* Divider Styling */
